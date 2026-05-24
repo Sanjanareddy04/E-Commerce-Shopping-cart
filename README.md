@@ -66,13 +66,14 @@ MySQL	                                    Database Management
 Collections                               Framework	Data Handling
 OOP Concepts	                            Software Design
 
-**Software Requirements**
+**Requirements**
 
 **Hardware Requirements**
 Processor: Intel i3 or above
 RAM: 4 GB minimum
 Hard Disk: 500 MB free space
-Software Requirements
+
+**Software Requirements**
 Java JDK 8 or above
 MySQL Server
 JDBC Driver
@@ -81,75 +82,26 @@ Windows/Linux Operating System
 Modules of the Project
 Module 1: Product Management
 
-This module handles:
+**Steps to Run the Project**
 
-Product addition
-Product viewing
-Product search
-Product pricing
-Module 2: Shopping Cart
-
-This module manages:
-
-Add to cart
-Remove from cart
-Quantity updates
-Total calculation
-Module 3: Customer Management
-
-This module stores:
-
-Customer records
-Billing information
-Purchase history
-Module 4: Billing System
-
-This module:
-
-Generates bills
-Calculates totals
-Displays invoice information
-Database Design
-Database Name
-
-ecommerce_db
-
-Table: products
-Column Name	Data Type
-product_id	INT
-product_name	VARCHAR(100)
-price	DOUBLE
-Table: customers
-Column Name	Data Type
-customer_id	INT
-customer_name	VARCHAR(100)
-mobile	VARCHAR(15)
-address	VARCHAR(255)
-Steps to Run the Project
-Step 1: Install Java
-
+**Step 1: Install Java**
 Install Java JDK 8 or above.
 
-Step 2: Install MySQL
-
+**Step 2: Install MySQL**
 Install MySQL server and create the database.
 
-Step 3: Configure JDBC Driver
-
+**Step 3: Configure JDBC Driver**
 Add MySQL JDBC driver to the project libraries.
 
-Step 4: Create Database Tables
-
+**Step 4: Create Database Tables**
 Run SQL commands to create:
+1. products table
+2. customers table
 
-products table
-customers table
-Step 5: Open Project in IDE
-
+**Step 5: Open Project in IDE**
 Open the project using:
+1. NetBeans
+2. Eclipse
 
-NetBeans
-Eclipse
-Step 6: Run the Application
-
+**Step 6: Run the Application**
 Execute the Main.java file.
