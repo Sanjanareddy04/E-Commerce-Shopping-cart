@@ -93,23 +93,29 @@ This project provides a simple and user-friendly interface for managing products
 **Steps to Run the Project**
 
 **Step 1: Install Java**
+
 Install Java JDK 8 or above.
 
 **Step 2: Install MySQL**
+
 Install MySQL server and create the database.
 
 **Step 3: Configure JDBC Driver**
+
 Add MySQL JDBC driver to the project libraries.
 
 **Step 4: Create Database Tables**
+
 Run SQL commands to create:
 1. products table
 2. customers table
 
 **Step 5: Open Project in IDE**
+
 Open the project using:
 1. NetBeans
 2. Eclipse
 
 **Step 6: Run the Application**
+
 Execute the Main.java file.
