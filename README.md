@@ -15,6 +15,7 @@ This project provides a simple and user-friendly interface for managing products
 
 **Features**
 1. Product Catalog
+  
 Displays the list of available products.
 Shows product details such as:
 Product ID
@@ -23,12 +24,14 @@ Product Price
 Users can browse products easily.
 
 2. Shopping Cart Operations
+   
 Add products to the shopping cart.
 Remove products from the cart.
 Update product quantity.
 Display total cart value.
 
 3. Bill Generation
+
 Generates customer bills automatically.
 Calculates:
 Total amount
@@ -37,6 +40,7 @@ Product-wise pricing
 Displays final payable amount.
 
 4. Customer Database
+
 Stores customer details using MySQL database.
 Saves:
 Customer Name
@@ -45,11 +49,13 @@ Address
 Purchase History
 
 5. GUI-Based Interface
+
 Developed using Java Swing.
 Interactive and easy-to-use interface.
 Menu-driven operations.
 
 6. JDBC Connectivity
+
 Connects Java application with MySQL database.
 Performs:
 Insert
