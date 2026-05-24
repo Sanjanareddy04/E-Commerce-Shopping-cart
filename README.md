@@ -18,9 +18,9 @@ This project provides a simple and user-friendly interface for managing products
   
 * Displays the list of available products.
 * Shows product details such as:
-- Product ID
-- Product Name
-- Product Price
+  - Product ID
+  - Product Name
+  - Product Price
 * Users can browse products easily.
 
 2. Shopping Cart Operations
@@ -34,18 +34,18 @@ This project provides a simple and user-friendly interface for managing products
 
 * Generates customer bills automatically.
 * Calculates:
-- Total amount
-- Quantity
-- Product-wise pricing
+  - Total amount
+  - Quantity
+  - Product-wise pricing
 * Displays final payable amount.
 
 4. Customer Database
 
 * Stores customer details using MySQL database.
 * Saves:
-- Customer Name
-- Mobile Number
-- Address
+  - Customer Name
+  - Mobile Number
+  - Address
 * Purchase History
 
 5. GUI-Based Interface
@@ -58,9 +58,9 @@ This project provides a simple and user-friendly interface for managing products
 
 * Connects Java application with MySQL database.
 * Performs:
-- Insert
-- Update
-- Delete
+  - Insert
+  - Update
+  - Delete
 * Retrieve operations
 
 **Technologies Used**
@@ -76,18 +76,18 @@ This project provides a simple and user-friendly interface for managing products
 **Requirements**
 
 **Hardware Requirements**
-Processor: Intel i3 or above
-RAM: 4 GB minimum
-Hard Disk: 500 MB free space
+* Processor: Intel i3 or above
+* RAM: 4 GB minimum
+* Hard Disk: 500 MB free space
 
 **Software Requirements**
-Java JDK 8 or above
-MySQL Server
-JDBC Driver
-NetBeans / Eclipse IDE
-Windows/Linux Operating System
-Modules of the Project
-Module 1: Product Management
+* Java JDK 8 or above
+* MySQL Server
+* JDBC Driver
+* NetBeans / Eclipse IDE
+* Windows/Linux Operating System
+* Modules of the Project
+* Module 1: Product Management
 
 **Steps to Run the Project**
 
