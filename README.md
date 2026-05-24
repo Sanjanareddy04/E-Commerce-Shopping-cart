@@ -16,8 +16,8 @@ This project provides a simple and user-friendly interface for managing products
 **Features**
 1. Product Catalog
   
-*Displays the list of available products.
-*Shows product details such as:
+* Displays the list of available products.
+* Shows product details such as:
 *Product ID
 *Product Name
 *Product Price
