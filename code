@@ -1,0 +1,235 @@
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.ArrayList;
+
+class Product {
+    int id;
+    String name;
+    double price;
+
+    Product(int id, String name, double price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+}
+
+public class ECommerceShoppingCart extends JFrame implements ActionListener {
+
+    // Product List
+    ArrayList<Product> products = new ArrayList<>();
+    ArrayList<Product> cart = new ArrayList<>();
+
+    // GUI Components
+    JTable productTable;
+    JTable cartTable;
+
+    DefaultTableModel productModel;
+    DefaultTableModel cartModel;
+
+    JButton addToCartBtn;
+    JButton removeBtn;
+    JButton billBtn;
+    JButton saveCustomerBtn;
+
+    JTextField customerNameField;
+    JTextField mobileField;
+    JTextArea billArea;
+
+    public ECommerceShoppingCart() {
+
+        setTitle("E-Commerce Shopping Cart");
+        setSize(1000, 700);
+        setLayout(new BorderLayout());
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Sample Products
+        products.add(new Product(1, "Laptop", 50000));
+        products.add(new Product(2, "Mouse", 500));
+        products.add(new Product(3, "Keyboard", 1200));
+        products.add(new Product(4, "Monitor", 15000));
+
+        // Product Table
+        productModel = new DefaultTableModel();
+        productModel.setColumnIdentifiers(new String[]{"ID", "Product Name", "Price"});
+
+        for (Product p : products) {
+            productModel.addRow(new Object[]{p.id, p.name, p.price});
+        }
+
+        productTable = new JTable(productModel);
+
+        // Cart Table
+        cartModel = new DefaultTableModel();
+        cartModel.setColumnIdentifiers(new String[]{"ID", "Product Name", "Price"});
+
+        cartTable = new JTable(cartModel);
+
+        // Buttons
+        addToCartBtn = new JButton("Add To Cart");
+        removeBtn = new JButton("Remove Item");
+        billBtn = new JButton("Generate Bill");
+        saveCustomerBtn = new JButton("Save Customer");
+
+        addToCartBtn.addActionListener(this);
+        removeBtn.addActionListener(this);
+        billBtn.addActionListener(this);
+        saveCustomerBtn.addActionListener(this);
+
+        // Customer Panel
+        JPanel customerPanel = new JPanel(new GridLayout(3, 2));
+
+        customerPanel.setBorder(BorderFactory.createTitledBorder("Customer Details"));
+
+        customerPanel.add(new JLabel("Customer Name:"));
+        customerNameField = new JTextField();
+        customerPanel.add(customerNameField);
+
+        customerPanel.add(new JLabel("Mobile Number:"));
+        mobileField = new JTextField();
+        customerPanel.add(mobileField);
+
+        customerPanel.add(saveCustomerBtn);
+
+        // Bill Area
+        billArea = new JTextArea();
+        JScrollPane billScroll = new JScrollPane(billArea);
+
+        // Panels
+        JPanel centerPanel = new JPanel(new GridLayout(1, 2));
+
+        centerPanel.add(new JScrollPane(productTable));
+        centerPanel.add(new JScrollPane(cartTable));
+
+        JPanel buttonPanel = new JPanel();
+
+        buttonPanel.add(addToCartBtn);
+        buttonPanel.add(removeBtn);
+        buttonPanel.add(billBtn);
+
+        add(customerPanel, BorderLayout.NORTH);
+        add(centerPanel, BorderLayout.CENTER);
+        add(buttonPanel, BorderLayout.SOUTH);
+        add(billScroll, BorderLayout.EAST);
+
+        setVisible(true);
+    }
+
+    // Button Events
+    public void actionPerformed(ActionEvent e) {
+
+        // Add to Cart
+        if (e.getSource() == addToCartBtn) {
+
+            int row = productTable.getSelectedRow();
+
+            if (row >= 0) {
+
+                int id = (int) productModel.getValueAt(row, 0);
+                String name = (String) productModel.getValueAt(row, 1);
+                double price = (double) productModel.getValueAt(row, 2);
+
+                cart.add(new Product(id, name, price));
+
+                cartModel.addRow(new Object[]{id, name, price});
+
+                JOptionPane.showMessageDialog(this, "Product Added To Cart");
+            } else {
+                JOptionPane.showMessageDialog(this, "Select Product First");
+            }
+        }
+
+        // Remove Item
+        if (e.getSource() == removeBtn) {
+
+            int row = cartTable.getSelectedRow();
+
+            if (row >= 0) {
+
+                cart.remove(row);
+                cartModel.removeRow(row);
+
+                JOptionPane.showMessageDialog(this, "Item Removed");
+            } else {
+                JOptionPane.showMessageDialog(this, "Select Cart Item");
+            }
+        }
+
+        // Generate Bill
+        if (e.getSource() == billBtn) {
+
+            billArea.setText("");
+
+            double total = 0;
+
+            billArea.append("===== E-Commerce Bill =====\n\n");
+
+            for (Product p : cart) {
+
+                billArea.append(
+                        p.id + "   " +
+                        p.name + "   Rs." +
+                        p.price + "\n"
+                );
+
+                total += p.price;
+            }
+
+            billArea.append("\n----------------------\n");
+            billArea.append("Total Amount : Rs." + total);
+
+            JOptionPane.showMessageDialog(this, "Bill Generated");
+        }
+
+        // Save Customer
+        if (e.getSource() == saveCustomerBtn) {
+
+            String name = customerNameField.getText();
+            String mobile = mobileField.getText();
+
+            saveCustomer(name, mobile);
+        }
+    }
+
+    // JDBC Database Method
+    public void saveCustomer(String name, String mobile) {
+
+        try {
+
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/ecommerce_db",
+                    "root",
+                    "password"
+            );
+
+            String query =
+                    "INSERT INTO customers(customer_name, mobile) VALUES (?, ?)";
+
+            PreparedStatement pst = con.prepareStatement(query);
+
+            pst.setString(1, name);
+            pst.setString(2, mobile);
+
+            pst.executeUpdate();
+
+            JOptionPane.showMessageDialog(this,
+                    "Customer Saved To Database");
+
+            con.close();
+
+        } catch (Exception ex) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Database Error : " + ex.getMessage());
+        }
+    }
+
+    // Main Method
+    public static void main(String[] args) {
+
+        new ECommerceShoppingCart();
+    }
+}
