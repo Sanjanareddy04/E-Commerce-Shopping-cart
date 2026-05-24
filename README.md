@@ -64,13 +64,14 @@ Delete
 Retrieve operations
 
 **Technologies Used**
-**Technology**                          **Purpose**
-Java	                                    Programming Language
-Swing	                                    GUI Development
-JDBC	                                    Database Connectivity
-MySQL	                                    Database Management
-Collections                               Framework	Data Handling
-OOP Concepts	                            Software Design
+| Technology | Purpose |
+| :--- | :--- |
+| **Java** | Programming Language |
+| **Swing** | GUI Development |
+| **JDBC** | Database Connectivity |
+| **MySQL** | Database Management |
+| **Collections Framework** | Data Handling |
+| **OOP Concepts** | Software Design |
 
 **Requirements**
 
