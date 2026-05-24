@@ -1,5 +1,5 @@
 🛒**E-Commerce Shopping Cart**
-📌** Project Description**
+📌 **Project Description**
 
 The E-Commerce Shopping Cart project is a Java-based desktop application developed using Java Swing GUI and JDBC connectivity. The application simulates an online shopping system where users can browse products, add items to a shopping cart, generate bills, and maintain customer information in a database.
 
