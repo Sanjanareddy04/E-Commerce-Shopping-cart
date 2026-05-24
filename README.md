@@ -14,7 +14,8 @@ The main objective of this project is to demonstrate the implementation of:
 This project provides a simple and user-friendly interface for managing products and customer shopping activities.
 
 **Features**
-1. Product Catalog
+
+**1. Product Catalog**
   
 * Displays the list of available products.
 * Shows product details such as:
@@ -23,14 +24,14 @@ This project provides a simple and user-friendly interface for managing products
   - Product Price
 * Users can browse products easily.
 
-2. Shopping Cart Operations
+**2. Shopping Cart Operations**
 
 * Add products to the shopping cart.
 * Remove products from the cart.
 * Update product quantity.
 * Display total cart value.
 
-3. Bill Generation
+**3. Bill Generation**
 
 * Generates customer bills automatically.
 * Calculates:
@@ -39,7 +40,7 @@ This project provides a simple and user-friendly interface for managing products
   - Product-wise pricing
 * Displays final payable amount.
 
-4. Customer Database
+**4. Customer Database**
 
 * Stores customer details using MySQL database.
 * Saves:
@@ -48,13 +49,13 @@ This project provides a simple and user-friendly interface for managing products
   - Address
 * Purchase History
 
-5. GUI-Based Interface
+**5. GUI-Based Interface**
 
 * Developed using Java Swing.
 * Interactive and easy-to-use interface.
 * Menu-driven operations.
 
-6. JDBC Connectivity
+**6. JDBC Connectivity**
 
 * Connects Java application with MySQL database.
 * Performs:
